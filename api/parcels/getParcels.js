@@ -8,8 +8,8 @@ export default async (req, res) => {
     const docs = await client.query(
       Map(
         Paginate(Match(Index("parcels"))),
-        Lambda(["ref", "description", "delivery_date"], {
-          ref: Var("ref"),
+        Lambda(["id", "description", "delivery_date"], {
+          ref: Var("id"),
           description: Var("description"),
           // eslint-disable-next-line @typescript-eslint/camelcase
           delivery_date: Var("delivery_date"),
