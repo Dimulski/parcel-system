@@ -1,17 +1,17 @@
 <template>
-  <div class="mt-6" v-if="parcel">
+  <div class="mt-6">
     <RouterLink
-      :to="`/parcel/${parcel?.id}`"
+      :to="`/parcel/${parcel?.ref}`"
       class="block max-w-2xl px-5 md:px-9 py-6 mx-auto bg-white rounded-lg shadow-md cursor-pointer"
     >
       <div class="mt-2 mb-1">
         <div class="flex justify-between items-center text-blue-700 text-sm">
-          <span class="text-sm"> Parcel #{{ parcel?.id }} </span>
+          <span class="text-sm"> Parcel #{{ parcel?.ref }} </span>
           <span class="text-sm"> Delivery: {{ formattedDeliveryDate }} </span>
         </div>
 
         <p class="mt-2 text-black">
-          {{ parcel.description }}
+          {{ parcel?.description }}
         </p>
       </div>
     </RouterLink>
@@ -20,7 +20,6 @@
 
 <script lang="ts">
 import formatDateMixin from "../mixins/dateFormatMixin";
-import { onMounted, PropType } from "vue";
 import ParcelItem from "@/models/ParcelItem";
 
 export default {
@@ -34,34 +33,16 @@ export default {
   // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
   // @ts-ignore: https://v3.vuejs.org/guide/typescript-support.html#using-with-composition-api
   setup(props) {
-    console.log("hi2");
-    console.log(props.parcel);
-
     const formatDate = formatDateMixin();
     const formattedDeliveryDate = formatDate(
       props.parcel.delivery_date,
       navigator.language
     );
 
-    onMounted(() => {
-      console.log("hi");
-    });
-
     return {
       formattedDeliveryDate,
     };
   },
-  // data() {
-  //   return {
-  //     formattedDate: this.formatDate(this.post.created_at),
-  //   };
-  // },
-  // beforeMount() {
-  //   this.formattedDate = this.formatDate(
-  //     this.post.created_at,
-  //     navigator.language
-  //   );
-  // },
 };
 </script>
 

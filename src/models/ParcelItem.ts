@@ -1,5 +1,5 @@
 export default interface ParcelItem {
-  id: string;
+  ref: string;
   description: string;
   delivery_date: string;
 }
