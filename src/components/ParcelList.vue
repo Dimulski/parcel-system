@@ -1,12 +1,15 @@
 <template>
   <div class="max-w-2xl mx-auto">
     <h1 class="text-2xl">Parcels</h1>
+    <ParcelItem
+      v-for="parcel in parcels"
+      :parcel="parcel"
+      :key="parcel.ref"
+    ></ParcelItem>
+    <RouterLink to="/parcel/create" class="link-button my-6 float-right">
+      Create parcel
+    </RouterLink>
   </div>
-  <ParcelItem
-    v-for="parcel in parcels"
-    :parcel="parcel"
-    :key="parcel.ref"
-  ></ParcelItem>
 </template>
 
 <script lang="ts">

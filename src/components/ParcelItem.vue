@@ -2,7 +2,7 @@
   <div class="mt-6">
     <RouterLink
       :to="`/parcel/${parcel?.ref}`"
-      class="block max-w-2xl px-5 md:px-9 py-6 mx-auto bg-white rounded-lg shadow-md cursor-pointer"
+      class="block px-5 md:px-9 py-6 mx-auto bg-white rounded-lg shadow-md cursor-pointer"
     >
       <div class="mt-2 mb-1">
         <div class="flex justify-between items-center text-blue-700 text-sm">
