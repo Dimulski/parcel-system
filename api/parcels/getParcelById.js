@@ -9,7 +9,7 @@ export default async (req, res) => {
       Get(Match(Index("parcel_by_id"), req.query.id))
     );
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
-    res.json(doc);
+    res.json(doc.data);
   } catch (error) {
     res.status(500).json({ error });
   }

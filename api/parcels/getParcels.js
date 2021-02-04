@@ -17,7 +17,7 @@ export default async (req, res) => {
       )
     );
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
-    res.json(docs);
+    res.json(docs.data);
   } catch (error) {
     res.status(500).json({ error });
   }
