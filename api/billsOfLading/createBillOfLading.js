@@ -40,6 +40,6 @@ export default async (req, res) => {
       res.json("Incorrect Bill of Lading information");
     }
   } catch (error) {
-    res.status(500).json(error ? { error } : { error: "Something went wrong" });
+    res.status(501).json({ error });
   }
 };
