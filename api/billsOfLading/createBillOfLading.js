@@ -30,7 +30,7 @@ export default async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
     if (isBillValid) {
       client
-        .query(Create(Collection("bills_of_lading"), { data: body }))
+        .query(Create(Collection("bills_of_lading"), { data: parsedBody }))
         .then((newBillResponse) => {
           const bill = newBillResponse.data;
           bill["ref"] = newBillResponse.ref.id;
