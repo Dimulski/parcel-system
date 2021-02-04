@@ -7,27 +7,28 @@ export default async (req, res) => {
   try {
     const dateRegex = /^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
     const { body } = req;
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
-    res.json(body);
+    const parsedBody = JSON.parse(body);
     // TODO: Basic validation, find a framework that does this properly
-    // const isBillValid =
-    //   body.description.length >= 5 &&
-    //   body.description.length <= 200 &&
-    //   body.weight >= 0.1 &&
-    //   body.weight <= 80 &&
-    //   body.packages >= 1 &&
-    //   body.packages <= 10 &&
-    //   body.senderName.length >= 5 &&
-    //   body.senderName.length <= 50 &&
-    //   body.senderAddress.length >= 5 &&
-    //   body.senderAddress.length <= 200 &&
-    //   dateRegex.test(body.deliveryDate) &&
-    //   body.receiverName.length >= 5 &&
-    //   body.receiverName.length <= 50 &&
-    //   body.receiverAddress.length >= 5 &&
-    //   body.receiverAddress.length <= 200;
+    const isBillValid =
+      parsedBody.description.length >= 5 &&
+      parsedBody.description.length <= 200 &&
+      parsedBody.weight >= 0.1 &&
+      parsedBody.weight <= 80 &&
+      parsedBody.packages >= 1 &&
+      parsedBody.packages <= 10 &&
+      parsedBody.senderName.length >= 5 &&
+      parsedBody.senderName.length <= 50 &&
+      parsedBody.senderAddress.length >= 5 &&
+      parsedBody.senderAddress.length <= 200 &&
+      dateRegex.test(parsedBody.deliveryDate) &&
+      parsedBody.receiverName.length >= 5 &&
+      parsedBody.receiverName.length <= 50 &&
+      parsedBody.receiverAddress.length >= 5 &&
+      parsedBody.receiverAddress.length <= 200;
 
-    // return;
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
+    res.json(isBillValid);
+    return;
     // if (isBillValid) {
     //   client
     //     .query(Create(Collection("bills_of_lading"), { data: body }))
