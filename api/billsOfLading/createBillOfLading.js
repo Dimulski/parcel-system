@@ -29,11 +29,9 @@ export default async (req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
 
     if (isBillValid) {
-      const newBillOfLading = client.query(
-        Create(Collection("bills_of_lading"), { data: body })
-      );
-
-      res.json(newBillOfLading);
+      client
+        .query(Create(Collection("bills_of_lading"), { data: body }))
+        .then((newBillOfLading) => res.json(newBillOfLading));
     } else {
       res.json("Incorrect Bill of Lading information");
     }
