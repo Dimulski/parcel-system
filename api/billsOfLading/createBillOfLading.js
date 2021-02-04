@@ -27,18 +27,19 @@ export default async (req, res) => {
       body.receiverAddress.length <= 200;
 
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:8080");
-
-    if (isBillValid) {
-      client
-        .query(Create(Collection("bills_of_lading"), { data: body }))
-        .then((newBillResponse) => {
-          const bill = newBillResponse.data;
-          bill["ref"] = newBillResponse.ref.id;
-          res.json(bill);
-        });
-    } else {
-      res.json("Incorrect Bill of Lading information");
-    }
+    res.json("isBillValid " + isBillValid);
+    return;
+    // if (isBillValid) {
+    //   client
+    //     .query(Create(Collection("bills_of_lading"), { data: body }))
+    //     .then((newBillResponse) => {
+    //       const bill = newBillResponse.data;
+    //       bill["ref"] = newBillResponse.ref.id;
+    //       res.json(bill);
+    //     });
+    // } else {
+    //   res.json("Incorrect Bill of Lading information");
+    // }
   } catch (error) {
     res.status(501).json({ error });
   }
