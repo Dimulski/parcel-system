@@ -6,7 +6,10 @@
       :parcel="parcel"
       :key="parcel.ref"
     ></ParcelItem>
-    <RouterLink to="/parcel/create" class="link-button my-6 float-right">
+    <RouterLink
+      to="/parcel/create"
+      class="link-button my-6 float-right bg-white"
+    >
       Create parcel
     </RouterLink>
   </div>
@@ -15,7 +18,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import ParcelItem from "@/components/ParcelItem.vue";
-import useParcels from "@/composables/parcels";
+import { useParcels } from "@/composables/parcels";
 
 export default defineComponent({
   name: "ParcelList",

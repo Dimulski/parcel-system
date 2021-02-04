@@ -6,6 +6,12 @@
 
 @layer components {
   .link-button {
-    @apply w-full sm:w-auto flex-none shadow-md bg-white text-gray-900 text-lg text-center cursor-pointer leading-6 font-semibold py-3 px-6 border border-transparent rounded-lg focus:shadow-none outline-none transition-shadow duration-200;
+    @apply w-full sm:w-auto flex-none shadow-md text-lg text-center cursor-pointer leading-6 font-semibold py-3 px-6 border border-transparent rounded-lg focus:shadow-none outline-none transition-shadow duration-200;
+  }
+  .form-input {
+    @apply w-full px-3 py-2 mb-2 border-2 border-gray-200 rounded-md focus:outline-none focus:border-blue-500 transition-colors;
+  }
+  .form-label {
+    @apply font-bold mb-2 text-sm text-gray-700 block;
   }
 }

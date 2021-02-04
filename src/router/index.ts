@@ -12,6 +12,11 @@ const routes: Array<RouteRecordRaw> = [
     component: () => import('@/views/CreateParcel.vue')
   },
   {
+    path: '/parcel/:id',
+    name: 'Parcel',
+    component: () => import('@/views/Parcel.vue')
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import('@/views/About.vue'),

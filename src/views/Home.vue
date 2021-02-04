@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto px-6 pb-12 pt-4 md:py-8">
+  <div class="container mx-auto px-6 pb-12 pt-4 md:py-8 mb-32">
     <Suspense>
       <template #default>
         <ParcelList />

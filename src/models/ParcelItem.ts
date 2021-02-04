@@ -1,5 +1,6 @@
 export default interface ParcelItem {
-  ref: string;
-  description: string;
-  delivery_date: string;
+  ref?: string;
+  billOfLadingRef?: string;
+  description?: string;
+  deliveryDate?: Date;
 }

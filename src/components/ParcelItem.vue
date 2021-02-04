@@ -35,7 +35,7 @@ export default {
   setup(props) {
     const formatDate = formatDateMixin();
     const formattedDeliveryDate = formatDate(
-      props.parcel.delivery_date,
+      props.parcel.deliveryDate ? props.parcel.deliveryDate.toString() : "",
       navigator.language
     );
 

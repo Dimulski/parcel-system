@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-4xl mx-auto px-6 pb-12">
+  <div class="container max-w-4xl mx-auto px-6 py-12">
     <ParcelForm />
   </div>
 </template>

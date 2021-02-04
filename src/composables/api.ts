@@ -14,7 +14,7 @@ export default function useApi<T>(url: RequestInfo, options?: RequestInit): Usab
     const res = await fetch(url, options);
     const data = await res.json();
 
-    response.value = data.data;
+    response.value = data;
   };
 
   return { request, response };
