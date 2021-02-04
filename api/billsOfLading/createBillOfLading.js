@@ -33,7 +33,7 @@ export default async (req, res) => {
         .query(Create(Collection("bills_of_lading"), { data: body }))
         .then((newBillResponse) => {
           const bill = newBillResponse.data;
-          bill["ref"] = newBillResponse.ref;
+          bill["ref"] = newBillResponse.ref.id;
           res.json(bill);
         });
     } else {
