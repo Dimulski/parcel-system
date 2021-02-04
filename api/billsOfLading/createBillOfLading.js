@@ -31,11 +31,15 @@ export default async (req, res) => {
     if (isBillValid) {
       client
         .query(Create(Collection("bills_of_lading"), { data: body }))
-        .then((newBillOfLading) => res.json(newBillOfLading));
+        .then((newBillResponse) => {
+          const bill = newBillResponse.data;
+          bill["ref"] = newBillResponse.ref["@ref"].id;
+          res.json(bill);
+        });
     } else {
       res.json("Incorrect Bill of Lading information");
     }
   } catch (error) {
-    res.status(500).json({ error });
+    res.status(500).json(error ? { error } : { error: "Something went wrong" });
   }
 };
