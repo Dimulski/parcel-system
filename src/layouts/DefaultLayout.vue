@@ -24,6 +24,6 @@ div.default-layout-content {
   margin-left: calc(100vw - 100%);
 }
 body .default-layout {
-  @apply bg-gray-100;
+  @apply bg-gray-100 print:bg-white;
 }
 </style>
