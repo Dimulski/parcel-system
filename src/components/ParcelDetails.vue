@@ -64,7 +64,7 @@
             <input
               disabled
               class="form-input"
-              :value="bill?.senderName"
+              :value="bill?.receiverName"
               type="email"
             />
           </div>
