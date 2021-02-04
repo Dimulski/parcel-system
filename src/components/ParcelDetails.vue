@@ -10,8 +10,8 @@
       class="py-10 rounded-md px-7 lg:px-9 bg-white shadow-md print:shadow-none print:pt-24"
     >
       <div class="mt-2 mb-7">
-        <div class="flex justify-between pb-2 text-sm">
-          <div class="block">
+        <div class="md:flex print:flex justify-between pb-2 text-sm">
+          <div class="block pb-2 md:pb-0">
             <div class="">
               <label class="">Parcel</label>
               <span class="text-blue-700">
@@ -33,8 +33,8 @@
                 {{ formattedDeliveryDate }}
               </span>
             </div>
-            <span class="text-right">Weight: {{ bill?.weight }}</span>
-            <span class="text-right">Packages: {{ bill?.packages }}</span>
+            <span class="md:text-right">Weight: {{ bill?.weight }}</span>
+            <span class="md:text-right">Packages: {{ bill?.packages }}</span>
           </div>
         </div>
 
@@ -49,8 +49,8 @@
             />
           </div>
         </div>
-        <div class="-mx-6 flex mb-5 print:justify-between">
-          <div class="md:w-1/2 px-6">
+        <div class="-mx-2 md:-mx-6 flex mb-5 print:justify-between">
+          <div class="md:w-1/2 px-2 md:px-6">
             <label class="form-label"> Sender Name </label>
             <input
               disabled
@@ -59,7 +59,7 @@
               type="text"
             />
           </div>
-          <div class="md:w-1/2 px-6">
+          <div class="md:w-1/2 px-2 md:px-6">
             <label class="form-label"> Receiver Name </label>
             <input
               disabled
@@ -70,8 +70,8 @@
           </div>
         </div>
 
-        <div class="-mx-6 flex mb-5 print:justify-between">
-          <div class="md:w-1/2 px-6">
+        <div class="-mx-2 md:-mx-6 flex mb-5 print:justify-between">
+          <div class="md:w-1/2 px-2 md:px-6">
             <label class="form-label"> Sender Email </label>
             <input
               disabled
@@ -80,7 +80,7 @@
               type="text"
             />
           </div>
-          <div class="md:w-1/2 px-6">
+          <div class="md:w-1/2 px-2 md:px-6">
             <label class="form-label"> Receiver Email </label>
             <input
               disabled
@@ -91,8 +91,8 @@
           </div>
         </div>
 
-        <div class="-mx-6 flex mb-5 print:justify-between">
-          <div class="md:w-1/2 px-6">
+        <div class="-mx-2 md:-mx-6 flex mb-5 print:justify-between">
+          <div class="md:w-1/2 px-2 md:px-6">
             <label class="form-label"> Sender Address </label>
             <input
               disabled
@@ -101,7 +101,7 @@
               type="text"
             />
           </div>
-          <div class="md:w-1/2 px-6">
+          <div class="md:w-1/2 px-2 md:px-6">
             <label class="form-label"> Receiver Address </label>
             <input
               disabled

@@ -221,7 +221,10 @@
       </fieldset>
     </transition-group>
   </form>
-  <div class="flex" :class="formStep == 1 ? 'justify-end' : 'justify-between'">
+  <div
+    class="md:flex"
+    :class="formStep == 1 ? 'justify-end' : 'justify-between'"
+  >
     <div
       class="link-button my-4 bg-white"
       v-if="formStep != 1"
@@ -230,7 +233,7 @@
       Back
     </div>
     <div
-      class="link-button my-4 flex items-center"
+      class="link-button my-4 items-center"
       :class="forwardButtonClass"
       @click="goForward()"
     >
