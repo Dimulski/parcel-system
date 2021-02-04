@@ -1,4 +1,6 @@
-# parcel-system
+# Parcel System
+
+A small Vue 3 project featuring Composition API, TypeScript, TailwindCSS and Vercel serverless functions.
 
 ## Project setup
 ```
