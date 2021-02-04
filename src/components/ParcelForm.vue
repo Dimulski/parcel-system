@@ -392,7 +392,7 @@ export default defineComponent({
         ? submitStep.value != 0
           ? "text-opacity-100 transition-colors bg-green-500 text-white"
           : "bg-white"
-        : "opacity-60 bg-white";
+        : "text-gray-300 bg-white";
     });
 
     const updateWeight = (newWeight: number) => {
