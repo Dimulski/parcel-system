@@ -52,3 +52,18 @@ export async function useCreateParcel(parcelInfo: ParcelItem): UsableCreateParce
 
   return { parcel };
 }
+
+export async function useDeleteParcel(id: string): UsableParcel {
+  const { request, response: parcel } = useApi<ParcelItem>(
+    `https://parcel-system.vercel.app/api/parcels/deleteParcelById?id=${id}`
+  );
+
+  const loaded = ref(false);
+
+  if (loaded.value === false) {
+    await request();
+    loaded.value = true;
+  }
+
+  return { parcel };
+}

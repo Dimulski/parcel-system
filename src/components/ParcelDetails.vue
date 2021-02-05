@@ -6,6 +6,12 @@
     >
       Home
     </RouterLink>
+    <div
+      @click="promptDelete()"
+      class="link-button sm:float-right mb-4 bg-white text-red-500 inline-block print:hidden"
+    >
+      Delete parcel
+    </div>
     <article
       class="py-10 rounded-md px-7 lg:px-9 bg-white shadow-md print:shadow-none print:pt-24"
     >
@@ -132,21 +138,35 @@
         </button>
       </div>
     </article>
+    <BaseModal
+      ref="deleteParcelModal"
+      title="Delete parcel"
+      :message="`Are you sure you want to delete parcel: ${parcel?.description}?`"
+      @confirm="deleteParcel()"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import formatDateMixin from "../mixins/dateFormatMixin";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { useBillOfLading } from "@/composables/billsOfLading";
-import { useParcel } from "@/composables/parcels";
+import { useParcel, useDeleteParcel } from "@/composables/parcels";
+import BaseModal from "@/components/BaseModal.vue";
+import { ref } from "vue";
 
 export default {
   name: "ParcelDetails",
+  components: {
+    BaseModal,
+  },
   async setup() {
     const route = useRoute();
+    const router = useRouter();
+    // https://github.com/vuejs/composition-api/issues/226#issuecomment-620074780
+    const deleteParcelModal = ref();
 
-    // not entirly thought out...
+    // not entirely thought out...
     const { parcel } = await useParcel(route.params.id.toString());
     const { bill } = await useBillOfLading(
       parcel?.value?.billOfLadingRef ? parcel.value.billOfLadingRef : ""
@@ -162,11 +182,26 @@ export default {
       window.print();
     };
 
+    const promptDelete = () => {
+      deleteParcelModal.value.show();
+    };
+
+    const deleteParcel = async () => {
+      deleteParcelModal.value.hide();
+      const { parcel } = await useDeleteParcel(route.params.id.toString());
+      if (parcel.value?.billOfLadingRef) {
+        router.push("/");
+      }
+    };
+
     return {
       formattedDeliveryDate,
       parcel,
       bill,
       print,
+      deleteParcel,
+      promptDelete,
+      deleteParcelModal,
     };
   },
 };
